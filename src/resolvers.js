@@ -24,21 +24,12 @@ const login = async (_, { email, password }) => {
     }, 'somesuperdupersecret', { expiresIn: '1y' }, { algorithm: 'HS256' })
 };
 
-const getUsers = (_, args, context) => {
-    // make sure user is authenticated
-    if (!context.user) {
-        throw new Error('You are not authorized!')
-    }
-
-    return users;
-};
-
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
     Query: {
         books: () => books,
-        users: getUsers
+        users: () => users
     },
 
     Mutation: {
