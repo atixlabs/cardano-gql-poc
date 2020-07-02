@@ -26,5 +26,5 @@ curl 'http://localhost:3000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 
 Use the JWT token to get users list. Replace `${JWT_TOKEN}` with your token or set the variable.
 
 ```
-curl 'http://localhost:3000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:3000' -H 'Authorization: Bearer ${JWT_TOKEN}' --data-binary '{"query":"{\n  users {\n    name\n  }\n}"}' --compressed
+curl 'http://localhost:3000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:3000' -H "Authorization: Bearer ${JWT_TOKEN}" --data-binary '{"query":"{\n  users {\n    name\n  }\n}"}' --compressed
 ```
